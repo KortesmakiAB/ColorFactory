@@ -1,6 +1,12 @@
 .Color {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-size: 5vw;
+    font-size: 3vw;
     color: white;
 }
 

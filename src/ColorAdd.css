@@ -1,0 +1,27 @@
+/* mostly from solution code */
+
+.ColorAdd {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+    align-items: center;
+    justify-content: center;
+}
+
+.ColorAdd form {
+    width: 50%;
+    background-color: white;
+    padding: 50px;
+    border-radius: 12px;
+}
+
+.ColorAdd-form div  {
+    padding: 15px;
+}
+
+.ColorAdd-form div label  {
+    margin-right: 15px;
+}
