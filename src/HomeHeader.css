@@ -1,0 +1,10 @@
+.HomeHeader {
+    padding: 1.05rem;
+    background-color: darkslategrey;
+    color: white;
+}
+
+.HomeHeader-a {
+    font-size: 2.5vw;
+    color: white;
+}

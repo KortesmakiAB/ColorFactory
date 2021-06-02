@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useParams } from "react-router-dom";
+import './Color.css';
 
 const Color = ({ getColor }) => {
     const { color } = useParams();
@@ -15,10 +16,10 @@ const Color = ({ getColor }) => {
     }, [hex, colorName]);
 
     return (
-        <div>
+        <div className="Color">
             <h1>THIS IS { color.toUpperCase() } </h1>
             <h1>ISN'T IT BEAUTIFUL!</h1>
-            <Link to="/colors"><h1>GO BACK</h1></Link>
+            <Link className="Color-a" to="/colors"><h1>GO BACK</h1></Link>
         </div>
     );
 };
