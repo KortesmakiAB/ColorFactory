@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import Color from './Color';
+import ColorAdd from './ColorAdd';
+import Home from './Home';
 
-function App() {
+function App({ colors }) {
+  const [colorObjs, setColorObjs] = useState(colors);
+
+  const addColor = colorObj => setColorObjs(c => [...c, colorObj]);
+  
+  const getColor = colorName => colorObjs.find(c => c.color === colorName);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path="/colors/add">
+        <ColorAdd addColor={addColor} />
+      </Route>
+      <Route exact path="/colors/:color">
+        <Color getColor={getColor} />
+      </Route>
+      <Route exact path="/colors">
+        <Home colors={ colorObjs } />
+      </Route>
+      <Redirect to="/colors"></Redirect>
+    </Switch>
   );
 }
 
+App.defaultProps = {
+  // colors: ['red', 'green', 'blue']
+  colors: [{ color: 'Tomato', hex: '#ff6347'}, { color: 'Aquamarine', hex: '#7FFFD4'}, { color: 'Cyan', hex: '#00FFFF'}, ]
+}
 export default App;
